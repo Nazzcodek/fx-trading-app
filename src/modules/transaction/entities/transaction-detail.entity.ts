@@ -36,7 +36,6 @@ export class TransactionDetail {
   @Column({ type: 'varchar', length: 255, nullable: true })
   reference_id: string | null;
 
-  // Fix this: Remove the default value from the entity definition
   @Column({ type: 'json', nullable: true })
   metadata: Record<string, any>;
 

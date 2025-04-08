@@ -36,7 +36,6 @@ export class ExchangeRate {
   @Column()
   source: string;
 
-  // Keep your existing methods
   static create(
     baseCurrency: string,
     targetCurrency: string,

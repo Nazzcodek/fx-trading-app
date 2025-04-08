@@ -78,7 +78,6 @@ export class TradingService {
         status: TradeStatus.PENDING,
       });
 
-      // Save the trade and store it in the variable we declared outside
       savedTrade = await this.tradeRepository.save(trade);
 
       // Process the actual currency conversion
@@ -111,7 +110,7 @@ export class TradingService {
       if (error instanceof Error && savedTrade) {
         try {
           const failedTrade = await this.tradeRepository.findOne({
-            where: { id: savedTrade.id }, // Use savedTrade instead of trade
+            where: { id: savedTrade.id },
           });
 
           if (failedTrade) {
@@ -119,9 +118,7 @@ export class TradingService {
             failedTrade.failureReason = error.message;
             await this.tradeRepository.save(failedTrade);
           }
-        } catch (updateError) {
-          // Log error but continue
-        }
+        } catch (updateError) {}
       }
 
       throw error;

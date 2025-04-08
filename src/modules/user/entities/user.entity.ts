@@ -7,7 +7,6 @@ import {
   OneToMany,
   BeforeInsert,
   BeforeUpdate,
-  AfterLoad,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import * as bcrypt from 'bcrypt';
@@ -52,7 +51,6 @@ export class User {
   @Exclude()
   private passwordChanged: boolean = false;
 
-  // Method to explicitly set password
   setPassword(newPassword: string) {
     this.password = newPassword;
     this.passwordChanged = true;

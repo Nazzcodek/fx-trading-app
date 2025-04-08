@@ -57,8 +57,6 @@ export class ExchangeRateApiProvider implements IFxProvider {
 
   async getSupportedCurrencies(): Promise<string[]> {
     try {
-      // Most exchange rate APIs provide this info in their documentation
-      // or via an endpoint - simplified here for clarity
       const url = `${this.API_BASE_URL}USD?api_key=${this.API_KEY}`;
 
       const { data } = await firstValueFrom(

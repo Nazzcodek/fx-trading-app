@@ -34,7 +34,6 @@ export class TransactionRepository implements ITransactionRepository {
   ): Promise<[Transaction[], number]> {
     const { page = 1, limit = 10, type, status } = options;
 
-    // Build where conditions
     const whereConditions: any = { userId };
     if (type) whereConditions.type = type;
     if (status) whereConditions.status = status;

@@ -50,7 +50,6 @@ export class CurrencySyncService {
     }
   }
 
-  // Initialize currencies on application startup
   async onApplicationBootstrap() {
     // Check if currencies table is empty
     const count = await this.currencyRepository.count();
@@ -110,7 +109,6 @@ export class CurrencySyncService {
       AUD: 'A$',
       CHF: 'Fr',
       CNY: '¥',
-      // Add more as needed
     };
 
     return symbols[code] || code;

@@ -27,9 +27,8 @@ export class TransactionService {
     @Inject('ITransactionRepository')
     private readonly transactionRepository: ITransactionRepository,
   ) {}
-  /**
-   * Maps DTO details to entity details
-   */
+
+  // Maps DTO details to entity details
   private mapDetailsToEntity(
     details: TransactionDetailDto[],
   ): TransactionDetail[] {
@@ -39,8 +38,6 @@ export class TransactionService {
       transactionDetail.currency_code = detail.currency_code;
       transactionDetail.amount = detail.amount;
       transactionDetail.is_debit = detail.is_debit;
-
-      // Handle optional fields that might be undefined
       transactionDetail.exchange_rate = detail.exchange_rate || null;
       transactionDetail.reference_id = detail.reference_id || null;
       transactionDetail.metadata = detail.metadata || {};
