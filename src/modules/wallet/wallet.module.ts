@@ -1,4 +1,3 @@
-// src/modules/wallet/wallet.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { WalletController } from './controllers/wallet.controller';
